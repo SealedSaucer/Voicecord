@@ -52,7 +52,7 @@ bot.add_cog(Music(bot))
 bot.run(os.getenv("TOKEN"))
 ```
 
-This Code is from [this tutorial](https://youtu.be/gvSgnPER6Kw). If you have any doubts regarding this, feel free to [contact me](https://dcs.gg/phantom).
+This Code is from [this tutorial](https://youtu.be/gvSgnPER6Kw). If you have any doubts regarding this, feel free to [contact me](https://dsc.gg/phantom).
 
 **DO NOT GIVE YOUR TOKEN TO OTHERS!**
 
