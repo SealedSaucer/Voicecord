@@ -15,6 +15,8 @@ A Code written in Python that helps you to keep your account 24/7 on Voice Chann
 
 • Install PyNaCl using the Package Manager
 
+> I would really suggest you to watch [this video](https://youtu.be/gvSgnPER6Kw) before installing.
+
 ---
 
 The [main.py](https://github.com/SealedSaucer/Voicecord/blob/main/main.py) is the main file. [keep_alive.py](https://github.com/SealedSaucer/Voicecord/blob/main/keep_alive.py) prevents your repl from going to sleep. (If you have a replit hacker plan, then you can delete [this file](https://github.com/SealedSaucer/Voicecord/blob/main/keep_alive.py) and paste this code inside the [main.py](https://github.com/SealedSaucer/Voicecord/blob/main/main.py) file : 
@@ -50,7 +52,7 @@ bot.add_cog(Music(bot))
 bot.run(os.getenv("TOKEN"))
 ```
 
-This Code is from [this tutorial](https://www.youtube.com). If you have any doubts regarding this, feel free to [contact me](https://dcs.gg/phantom).
+This Code is from [this tutorial](https://youtu.be/gvSgnPER6Kw). If you have any doubts regarding this, feel free to [contact me](https://dcs.gg/phantom).
 
 **DO NOT GIVE YOUR TOKEN TO OTHERS!**
 
