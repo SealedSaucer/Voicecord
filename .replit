@@ -6,7 +6,7 @@ hidden = ["venv", ".config", "**/__pycache__", "**/.mypy_cache", "**/*.pyc"]
 [nix]
 channel = "stable-21_11"
 
-[languages.python3].
+[languages.python3]
 pattern = "**/*.py"
 
 syntax = "python"
