@@ -1,28 +1,20 @@
 import discord
-import keep_alive
 import os
 from discord.ext import commands
+from keep_alive import keep_alive
 
-class Music(commands.Cog):
-    def __init__(self, bot):
-        self.bot = bot
+client=commands.Bot(command_prefix=':', self_bot=True, help_command=None)
 
-    @commands.command()
-    async def join(self, ctx, *, channel: discord.VoiceChannel):
-        if ctx.voice_client is not None:
-            return await ctx.voice_client.move_to(channel)
-        await channel.connect()
+GUILD_ID = YOUR_GUILD_ID_HERE
+CHANNEL_ID = YOUR_CHANNEL_HERE
 
-    @commands.command()
-    async def leave(self, ctx):
-        await ctx.voice_client.disconnect()
-
-bot = commands.Bot(command_prefix=("&"))
-
-@bot.event
+@client.event
 async def on_ready():
-    print('Logged in as {0} ({0.id})'.format(bot.user))
+    os.system('clear')
+    print(f'Logged in as {client.user} ({client.user.id})')
+    vc = discord.utils.get(client.get_guild(GUILD_ID).channels, id = CHANNEL_ID)
+    await vc.guild.change_voice_state(channel=vc, self_mute=False, self_deaf=False)
+    print(f"Successfully joined {vc.name} ({vc.id})")
 
-keep_alive.keep_alive()
-bot.add_cog(Music(bot))
-bot.run(os.getenv("TOKEN"))
+keep_alive()
+client.run(os.getenv("TOKEN"), bot=False)
