@@ -32,7 +32,7 @@ async def on_ready():
 client.run(os.getenv("TOKEN"), bot=False)
 ```
 
-This code is from [this tutorial](https://youtu.be/gvSgnPER6Kw). If you have any doubts regarding this, feel free to [contact me](https://dsc.gg/phantom).
+This code is from [this tutorial](https://youtu.be/u9P2K2pNNJQ). If you have any doubts regarding this, feel free to [contact me](https://dsc.gg/phantom).
 
 **DO NOT GIVE YOUR TOKEN TO OTHERS!**
 
