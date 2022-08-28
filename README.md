@@ -19,7 +19,7 @@ from discord.ext import commands
 client=commands.Bot(command_prefix=':', self_bot=True, help_command=None)
 
 GUILD_ID = YOUR_GUILD_ID_HERE
-CHANNEL_ID = YOUR_CHANNEL_HERE
+CHANNEL_ID = YOUR_CHANNEL_ID_HERE
 
 @client.event
 async def on_ready():
@@ -29,7 +29,7 @@ async def on_ready():
     await vc.guild.change_voice_state(channel=vc, self_mute=False, self_deaf=False)
     print(f"Successfully joined {vc.name} ({vc.id})")
 
-client.run(os.getenv("TOKEN"), bot=False)
+client.run(os.getenv("TOKEN"))
 ```
 
 This code is from [this tutorial](https://youtu.be/u9P2K2pNNJQ). If you have any doubts regarding this, feel free to [contact me](https://dsc.gg/phantom).
