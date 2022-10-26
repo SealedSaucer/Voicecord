@@ -5,6 +5,8 @@ Make your discord account 24/7 online on voice channels!
 
 A Code written in Python that helps you to keep your account 24/7 on discord voice channels.
 
+#### Please check out this if you want to add multiple tokens with just one file: [sealedsaucer.sellix.io/product/6359655010aec](https://sealedsaucer.sellix.io/product/6359655010aec)
+
 ---
 
 The [main.py](https://github.com/SealedSaucer/Voicecord/blob/main/main.py) is the main file. [keep_alive.py](https://github.com/SealedSaucer/Voicecord/blob/main/keep_alive.py) prevents your repl from going to sleep. (If you have a replit hacker plan or want to run the script locally, then you can delete [this file](https://github.com/SealedSaucer/Voicecord/blob/main/keep_alive.py) and paste this code inside the [main.py](https://github.com/SealedSaucer/Voicecord/blob/main/main.py) file : 
