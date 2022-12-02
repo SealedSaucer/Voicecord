@@ -3,9 +3,9 @@ Make your discord account 24/7 online on voice channels!
 
 ----
 
-A Code written in Python that helps you to keep your account 24/7 on discord voice channels.
+A code written in Python that helps you to keep your account 24/7 on discord voice channels.
 
-#### Please check out this if you want to add multiple tokens with just one file: [sealedsaucer.sellix.io/product/6359655010aec](https://sealedsaucer.sellix.io/product/6359655010aec)
+#### Please check out this if you want to add multiple tokens with just one file: [phantom.sellix.io/product/6359655010aec](https://phantom.sellix.io/product/6359655010aec)
 
 ---
 
