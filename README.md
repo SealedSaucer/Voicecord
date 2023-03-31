@@ -14,7 +14,6 @@ The [main.py](https://github.com/SealedSaucer/Voicecord/blob/main/main.py) is th
 </br>
 
 ```py
-import os
 import sys
 import json
 import time
@@ -28,10 +27,7 @@ CHANNEL_ID = ADD_YOUR_CHANNEL_ID_HERE
 SELF_MUTE = True
 SELF_DEAF = False
 
-usertoken = os.getenv("TOKEN")
-if not usertoken:
-  print("[ERROR] Please add a token inside Secrets.")
-  sys.exit()
+usertoken = "Add your token here"
 
 headers = {"Authorization": usertoken, "Content-Type": "application/json"}
 
@@ -58,7 +54,6 @@ def joiner(token, status):
     ws.send(json.dumps({"op": 1,"d": None}))
 
 def run_joiner():
-  os.system("clear")
   print(f"Logged in as {username}#{discriminator} ({userid}).")
   while True:
     joiner(usertoken, status)
