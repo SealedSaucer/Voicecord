@@ -6,7 +6,7 @@ import requests
 import websocket
 from keep_alive import keep_alive
 
-status = "online"
+status = "online" #online/dnd/idle
 
 GUILD_ID = ADD_YOUR_SERVER_ID_HERE
 CHANNEL_ID = ADD_YOUR_CHANNEL_ID_HERE
