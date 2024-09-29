@@ -1,4 +1,4 @@
 requests
 websocket
-websocket-client
+websocket-client==1.7.0
 Flask
