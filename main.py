@@ -1,53 +1,90 @@
-import os
 import sys
 import json
 import time
 import requests
 import websocket
-from keep_alive import keep_alive
+from websocket._core import create_connection
+from websocket._exceptions import WebSocketConnectionClosedException
 
-status = "online" #online/dnd/idle
+status = "online"
 
-GUILD_ID = ADD_YOUR_SERVER_ID_HERE
-CHANNEL_ID = ADD_YOUR_CHANNEL_ID_HERE
+GUILD_ID = "1358108404182159451"
+CHANNEL_ID = "1358133795156656421"
 SELF_MUTE = True
 SELF_DEAF = False
 
-usertoken = os.getenv("TOKEN")
-if not usertoken:
-  print("[ERROR] Please add a token inside Secrets.")
-  sys.exit()
+usertoken = "NzAzMjI2MTc4NTQxOTc3NjAw.8pT1sx--iy1VoJAwE4gqVMlpPG0"
 
 headers = {"Authorization": usertoken, "Content-Type": "application/json"}
 
-validate = requests.get('https://canary.discordapp.com/api/v9/users/@me', headers=headers)
+validate = requests.get('https://discordapp.com/api/v9/users/@me', headers=headers)
 if validate.status_code != 200:
-  print("[ERROR] Your token might be invalid. Please check it again.")
-  sys.exit()
+    print("[ERROR] Invalid token. Check your token and try again.")
+    sys.exit()
 
-userinfo = requests.get('https://canary.discordapp.com/api/v9/users/@me', headers=headers).json()
+userinfo = validate.json()
 username = userinfo["username"]
 discriminator = userinfo["discriminator"]
 userid = userinfo["id"]
 
-def joiner(token, status):
-    ws = websocket.WebSocket()
-    ws.connect('wss://gateway.discord.gg/?v=9&encoding=json')
-    start = json.loads(ws.recv())
-    heartbeat = start['d']['heartbeat_interval']
-    auth = {"op": 2,"d": {"token": token,"properties": {"$os": "Windows 10","$browser": "Google Chrome","$device": "Windows"},"presence": {"status": status,"afk": False}},"s": None,"t": None}
-    vc = {"op": 4,"d": {"guild_id": GUILD_ID,"channel_id": CHANNEL_ID,"self_mute": SELF_MUTE,"self_deaf": SELF_DEAF}}
-    ws.send(json.dumps(auth))
-    ws.send(json.dumps(vc))
-    time.sleep(heartbeat / 1000)
-    ws.send(json.dumps({"op": 1,"d": None}))
+def connect_to_voice():
+    while True:
+        try:
+            ws = create_connection('wss://gateway.discord.gg/?v=9&encoding=json')
+            print("Connected to Discord Gateway.")
 
-def run_joiner():
-  os.system("clear")
-  print(f"Logged in as {username}#{discriminator} ({userid}).")
-  while True:
-    joiner(usertoken, status)
-    time.sleep(30)
+            hello = json.loads(ws.recv())
+            heartbeat_interval = hello['d']['heartbeat_interval'] / 1000
 
-keep_alive()
-run_joiner()
+            auth_payload = {
+                "op": 2,
+                "d": {
+                    "token": usertoken,
+                    "properties": {
+                        "$os": "Windows",
+                        "$browser": "Chrome",
+                        "$device": "PC"
+                    },
+                    "presence": {
+                        "status": status,
+                        "afk": False
+                    }
+                }
+            }
+            ws.send(json.dumps(auth_payload))
+
+            voice_payload = {
+                "op": 4,
+                "d": {
+                    "guild_id": GUILD_ID,
+                    "channel_id": CHANNEL_ID,
+                    "self_mute": SELF_MUTE,
+                    "self_deaf": SELF_DEAF
+                }
+            }
+            ws.send(json.dumps(voice_payload))
+            print(f"Joined voice channel {CHANNEL_ID} in guild {GUILD_ID}.")
+
+            last_heartbeat = time.time()
+            while True:
+                try:
+                    event = json.loads(ws.recv())
+                    print("Event:", event)
+
+                    if time.time() - last_heartbeat > heartbeat_interval:
+                        ws.send(json.dumps({"op": 1, "d": None}))
+                        last_heartbeat = time.time()
+
+                except WebSocketConnectionClosedException:
+                    print("WebSocket connection closed. Reconnecting...")
+                    time.sleep(5)
+                    break
+
+        except Exception as e:
+            print(f"Error: {e}. Reconnecting in 5 seconds...")
+            time.sleep(5)
+            continue
+
+if __name__ == "__main__":
+    print(f"Logged in as {username}#{discriminator} ({userid}).")
+    connect_to_voice()
