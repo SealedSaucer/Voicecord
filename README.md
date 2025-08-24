@@ -2,7 +2,6 @@
     <h1>Voicecord</h1>
     <p>Make Your Discord Account 24/7 On Voice Channels!</p>
     <a href="https://github.com/SealedSaucer/Voicecord/blob/main/LICENSE"><img src="https://img.shields.io/github/license/SealedSaucer/Voicecord?style=for-the-badge"></a>
-    <a href="https://sealedsaucer.sell.app"><img src="https://img.shields.io/badge/SHOP-CLICK HERE-5e40e4?style=for-the-badge"></a>
     <a href="https://phantom.fr.to/verify"><img src="https://img.shields.io/badge/contact-click me-05babf?style=for-the-badge"></a>
     <br>
     <img src="https://i.imgur.com/Pzu4u0S.png" height="100">
@@ -11,8 +10,6 @@
 ---
 
 <p align="center">
-If you want to connect tokens to a voice channel in bulk, consider checking out my store: <b><a href="https://sealedsaucer.sell.app">click here</a></b>! ☄️
-<br>
 ⭐ Feel free to star the repository if this helped you!
 </p>
 
