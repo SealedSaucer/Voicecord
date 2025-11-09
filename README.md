@@ -150,9 +150,6 @@ Run <code>pip install websocket</code> in the shell
 Run <code>pip install websocket-client</code> in the shell
 </details>
 
-## Help and Support
-If you have any issues or doubts regarding this, feel free to [contact me](https://phantom.fr.to/verify).
-
 ---
 
 <p align="center">❤️ Voicecord is licensed under GNU General Public License.</p>
