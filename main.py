@@ -29,7 +29,7 @@ async def heartbeat(ws, interval):
 async def main():
     uri = "wss://gateway.discord.gg/?v=10&encoding=json"
 
-    async with websockets.connect(uri) as ws:
+    async with websockets.connect(uri, max_size=10 * 1024 * 1024) as ws:
         hello = json.loads(await ws.recv())
         heartbeat_interval = hello["d"]["heartbeat_interval"]
 
