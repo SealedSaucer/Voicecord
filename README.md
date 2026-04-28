@@ -1,15 +1,13 @@
 <div id="Phantom" align="center">
     <h1>Voicecord</h1>
     <p>Make Your Discord Account 24/7 On Voice Channels!</p>
-    <a href="https://github.com/SealedSaucer/Voicecord/blob/main/LICENSE"><img src="https://img.shields.io/github/license/SealedSaucer/Voicecord?style=for-the-badge"></a>
-    <br>
     <img src="https://i.imgur.com/Pzu4u0S.png" height="100">
 </div>
 
----
+<br>
 
 <p align="center">
-⭐ Feel free to star the repository if this helped you!
+<b>⭐ Feel free to star the repository if this helped you!</b>
 </p>
 
 ## Disclaimer
@@ -57,4 +55,4 @@ You will need an user token inorder to use this code. You can obtain it by doing
 
 ---
 
-<p align="center">Voicecord is licensed under GNU General Public License ❤️</p>
+<p align="center">Voicecord is licensed under <a href="https://github.com/SealedSaucer/Voicecord/blob/main/LICENSE">GNU General Public License</a> ❤️</p>
